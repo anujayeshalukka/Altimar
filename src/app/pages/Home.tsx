@@ -23,7 +23,7 @@ export function Home() {
   return (
     <div className="relative bg-transparent">
       {/* Hero Section with Sticky Video Background */}
-      <section className="sticky top-0 w-full h-[100vh] min-h-[600px] flex items-center justify-center overflow-hidden z-0">
+      <section className="sticky top-0 w-full h-screen h-[100dvh] min-h-[500px] sm:min-h-[600px] flex items-center justify-center overflow-hidden z-0 pb-[68px] lg:pb-0">
         <video
           autoPlay
           loop
@@ -40,9 +40,9 @@ export function Home() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full sm:mt-16">
           {/* Mobile-only background logo */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full opacity-30 pointer-events-none sm:hidden mix-blend-screen">
+          {/* <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full opacity-30 pointer-events-none sm:hidden mix-blend-screen">
             <img src={altimarSqr} alt="" className="w-full h-auto object-contain" />
-          </div>
+          </div> */}
 
           <div className="relative z-10 mx-auto">
             <motion.h1 
@@ -112,7 +112,7 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
               >
                 Trusted Engineering Excellence
               </motion.p>
@@ -229,7 +229,7 @@ export function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                  className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
                 >
                   Core Services
                 </motion.p>
@@ -381,7 +381,7 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
               >
                 Why Choose Altimar?
               </motion.p>
