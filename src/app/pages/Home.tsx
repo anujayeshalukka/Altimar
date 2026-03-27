@@ -496,13 +496,13 @@ export function Home() {
             >
               Ready to discuss your next project?
               <br />
-              <span className="text-[#1a2e2a] text-6xl font-bold">Let's Engineer a Solution.</span>
+              <span className="text-[#1a2e2a] text-6xl font-bold mt-5">Let's Engineer a Solution.</span>
             </motion.h2>
 
             <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
               <Link
                 to="/contact"
-                className="rounded-md bg-[#264740] px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-[#1a2e2a] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="rounded-md bg-transparent border border-white px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-white hover:text-[#264740] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Get in touch
               </Link>
