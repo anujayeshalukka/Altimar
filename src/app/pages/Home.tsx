@@ -50,7 +50,7 @@ export function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl font-light text-left tracking-tight text-white mb-7 drop-shadow-lg sm:text-7xl md:text-8xl lg:text-tight"
+              className="text-5xl font-light text-left tracking-tight text-white mb-7 drop-shadow-lg sm:text-7xl md:text-8xl lg:text-tight"
             >
               Engineering Solutions Built for <span className="font-bold">Real-World</span> Performance
             </motion.h1>
@@ -112,7 +112,7 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                className="mt-2 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl"
               >
                 Trusted Engineering Excellence
               </motion.p>
@@ -205,7 +205,7 @@ export function Home() {
           {/* <div className="absolute inset-0 bg-white/90 backdrop-blur-[2px]" aria-hidden="true" /> */}
           
           <span
-            className="absolute top-0 left-0 text-gray-100 font-bold leading-none select-none pointer-events-none z-0"
+            className="absolute top-0 left-0 w-full text-center lg:text-left text-gray-100 font-bold leading-none select-none pointer-events-none z-0"
             style={{ fontSize: "clamp(80px, 20vw, 200px)" }}
             aria-hidden="true"
           >
@@ -229,9 +229,9 @@ export function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                  className="mt-2 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl"
                 >
-                  Core Services
+                  Our Core Services
                 </motion.p>
               </div>
 
@@ -381,7 +381,7 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                className="mt-2 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl"
               >
                 Why Choose Altimar?
               </motion.p>
