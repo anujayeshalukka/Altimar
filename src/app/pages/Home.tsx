@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ArrowRight, CheckCircle2, Factory, Zap, Anchor, Settings, Wrench, Cpu, ShieldCheck } from "lucide-react";
 import { Link } from "react-router";
 import { motion } from "framer-motion";
@@ -17,6 +18,8 @@ import whyUsImg from "../components/images/whyus.png";
 
 
 export function Home() {
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+
   return (
     <div className="relative bg-transparent">
       {/* Hero Section with Sticky Video Background */}
@@ -182,9 +185,9 @@ export function Home() {
             </motion.p>
 
 
-<div className="flex gap-6 mt-4 justify-end items-center">
+<div className="flex gap-6 mt-4 justify-center sm:justify-end items-center">
               <span className="bg-white h-[1px] w-[100px] md:w-[200px] shrink-0 hidden sm:block mt-3"></span>
-              <div className="flex flex-col text-right">
+              <div className="flex flex-col text-center sm:text-right">
                 <p className="text-[16px] leading-6 text-gray-200 drop-shadow-md max-w-xl m-0 ">
                   Altimar Energy Solutions                </p>
 
@@ -304,13 +307,14 @@ export function Home() {
               ].map((service, idx) => (
                 <div 
                   key={idx} 
-                  className="group relative h-[400px] overflow-hidden rounded-3xl bg-gray-900 shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+                  onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
+                  className={`group relative h-[400px] cursor-pointer overflow-hidden rounded-3xl bg-gray-900 shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${expandedIdx === idx ? 'shadow-2xl -translate-y-2' : ''}`}
                 >
                   {/* Background Image */}
                   <img 
                     src={service.image} 
                     alt={service.title} 
-                    className="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-40"
+                    className={`absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-40 ${expandedIdx === idx ? 'scale-110 opacity-40' : ''}`}
                   />
                   
                   {/* Gradient Overlay */}
@@ -318,13 +322,12 @@ export function Home() {
                   
                   {/* Content */}
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:mb-6 transition-all duration-300">
+                    <h3 className={`text-2xl font-bold text-white mb-4 transition-all duration-300 ${expandedIdx === idx ? 'mb-6' : 'group-hover:mb-6'}`}>
                       {service.title}
                     </h3>
                     
-                    {/* Points list - revealed on hover on desktop, visible on mobile via smaller scale or always? 
-                        Let's make it reveal beautifully. */}
-                    <div className="max-h-0 overflow-hidden transition-all duration-500 group-hover:max-h-[200px]">
+                    {/* Points list - revealed on hover on desktop, or click on mobile */}
+                    <div className={`max-h-0 overflow-hidden transition-all duration-500 ${expandedIdx === idx ? 'max-h-[200px]' : 'group-hover:max-h-[200px]'}`}>
                       <ul className="space-y-2">
                         {service.points.map((point, pIdx) => (
                           <li key={pIdx} className="flex items-start gap-2 text-sm text-gray-300">
@@ -334,7 +337,11 @@ export function Home() {
                         ))}
                       </ul>
                       <div className="mt-6">
-                        <Link to="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-[#4e8377] hover:text-white transition-colors">
+                        <Link 
+                          to="/services" 
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-[#4e8377] hover:text-white transition-colors"
+                        >
                           Learn More <ArrowRight className="h-4 w-4" />
                         </Link>
                       </div>
@@ -402,13 +409,13 @@ export function Home() {
                     desc: "Success in the most demanding industrial environments." 
                   }
                 ].map((item, idx) => (
-                  <div key={idx} className="relative group text-right flex items-center justify-end gap-6">
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
-                      <p className="text-sm text-gray-600 mt-1 max-w-[200px] ml-auto">{item.desc}</p>
-                    </div>
+                  <div key={idx} className="relative group text-left lg:text-right flex flex-row lg:flex-row-reverse items-center justify-start lg:justify-end gap-6">
                     <div className="h-16 w-16 shrink-0 rounded-2xl bg-white shadow-md border border-gray-100 flex items-center justify-center text-[#264740] group-hover:bg-[#264740] group-hover:text-white transition-all duration-300">
                       <item.icon className="h-8 w-8" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
+                      <p className="text-sm text-gray-600 mt-1 max-w-[200px] lg:ml-auto">{item.desc}</p>
                     </div>
                     {/* Decorative connecting line (Desktop only) */}
                     <div className="hidden lg:block absolute -right-8 top-1/2 h-px w-8 bg-gray-200 group-hover:bg-[#4e8377] transition-colors" />
