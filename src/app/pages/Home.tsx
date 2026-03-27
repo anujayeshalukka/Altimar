@@ -320,6 +320,9 @@ export function Home() {
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80" />
                   
+                  {/* Dark Overlay on Hover */}
+                  <div className={`absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${expandedIdx === idx ? 'opacity-100' : ''}`} />
+                  
                   {/* Content */}
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
                     <h3 className={`text-2xl font-bold text-white mb-4 transition-all duration-300 ${expandedIdx === idx ? 'mb-6' : 'group-hover:mb-6'}`}>
