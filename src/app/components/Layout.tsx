@@ -1,4 +1,5 @@
 import { Link, Outlet, useLocation } from "react-router";
+import { motion } from "framer-motion";
 import { Menu, X, ArrowRight, Phone, Mail, Home, Briefcase, FolderOpen, PhoneCall } from "lucide-react";
 import { useState, useEffect } from "react";
 import altimarLogo from "./images/altimar-footer.png";
@@ -119,7 +120,7 @@ function Header() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#4e8377]"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 hover:text-[#4e8377]"
                   >
                     {item.name}
                   </Link>
@@ -128,7 +129,7 @@ function Header() {
               <div className="py-6">
                 <QuickEnquiryModal>
                   <button
-                    className="-mx-3 block w-full text-left rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#4e8377] cursor-pointer"
+                    className="-mx-3 block w-full text-left rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 hover:text-[#4e8377] cursor-pointer"
                   >
                     Quick Enquiry
                   </button>
@@ -255,13 +256,50 @@ function MobileBottomNav() {
   );
 }
 
-export function Layout() {
+function CallToAction() {
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-gray-50/50">
+    <section className="bg-[#4e8377] relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10 pattern-grid-white/[0.2]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl font-light tracking-tight text-white sm:text-4xl"
+        >
+          Ready to discuss your next project?
+          <br />
+          <span className="text-[#1a2e2a] text-6xl font-bold mt-5">Let's Engineer a Solution.</span>
+        </motion.h2>
+
+        <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+          <Link
+            to="/contact"
+            className="rounded-md bg-transparent border border-white px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-white hover:text-[#264740] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Get in touch
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Layout() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return (
+    <div className="min-h-screen flex flex-col font-sans bg-gray-100/50">
       <Header />
       <main className="flex-1 pb-[68px] lg:pb-0">
         <Outlet />
       </main>
+      <CallToAction />
       <Footer />
       <MobileBottomNav />
     </div>

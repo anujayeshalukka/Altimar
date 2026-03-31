@@ -1,14 +1,30 @@
+import { useRef } from "react";
 import { CheckCircle2, Users, Target, Shield, Briefcase } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import aboutImg from "../components/images/aboutmission.jpg";
+import about01Img from "../components/images/about01.jpg";
+import aboutMissionImg from "../components/images/about.jpg";
 
 export function About() {
+  const missionSectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: missionSectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+
   return (
     <div className="bg-white">
       {/* Page Header */}
-      <div className="bg-[#264740] py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#264740] to-[#4e8377] opacity-90" />
+      <div 
+        className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${aboutImg})` }}
+      >
+        <div className="absolute inset-0 bg-gray-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">About Us</h1>
-          <p className="mt-4 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
+          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl">About Us</h1>
+          <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             Delivering technical excellence and robust engineering solutions across critical industries.
           </p>
         </div>
@@ -20,13 +36,22 @@ export function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <img
-                src="https://images.unsplash.com/photo-1762787804897-32d181381de3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXJpbmUlMjBzaGlwYnVpbGRpbmclMjBlbmdpbmVlcnN8ZW58MXx8fHwxNzc0MDkwNTgxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                src={about01Img}
                 alt="Marine Shipbuilding"
                 className="rounded-2xl object-cover shadow-xl h-[600px] w-full"
               />
             </div>
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-6">Company Introduction</h2>
+            <div className="pt-2">
+              <motion.span 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="inline-block font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider mb-2"
+              >
+                About Us
+              </motion.span>
+              <h2 className="text-5xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">Company Introduction</h2>
               <div className="space-y-6 text-lg text-gray-600">
                 <p>
                   Altimar Energy Solutions is a premier engineering and technical services provider specializing in the energy, marine, and industrial sectors. 
@@ -43,36 +68,100 @@ export function About() {
         </div>
       </section>
 
-      {/* Vision & Mission */}
-      <section className="bg-gray-50 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-            <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
-              <div className="h-14 w-14 bg-[#4e8377]/10 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="h-7 w-7 text-[#4e8377]" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-              <p className="text-gray-600 leading-relaxed">
-                To be the globally recognized benchmark for engineering reliability and technical innovation in critical infrastructure, marine, and energy sectors.
+      {/* Vision & Mission - Redesigned based on reference slide */}
+      <section ref={missionSectionRef} className="bg-[#264740] pt-24 sm:pt-32 pb-0 relative overflow-hidden">
+        {/* Decorative background logo with parallax effect */}
+        <motion.div 
+          style={{ y: parallaxY }}
+          className="absolute right-0 top-0 opacity-5 pointer-events-none translate-x-1/4 -translate-y-1/4 scale-150 z-0"
+        >
+          <img src={about01Img} alt="" className="w-full h-auto" />
+        </motion.div>
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-start mb-24">
+            <div className="text-left pt-12">
+              <h2 className="text-4xl font-light tracking-tight text-white sm:text-6xl mb-8 leading-tight">
+                Our <span className="font-bold">Mission</span> and <br />
+                <span className="font-bold">Vision</span> Statement
+              </h2>
+              <div className="h-1 w-24 bg-white/20 mb-8 rounded-full" />
+              <p className="text-lg leading-8 text-white/80 max-w-lg font-light">
+                Delivering technical excellence and robust engineering solutions across critical industries by defining purpose, excellence, and operational reliability for our global partners.
               </p>
             </div>
-            <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
-              <div className="h-14 w-14 bg-[#264740]/10 rounded-2xl flex items-center justify-center mb-6">
-                <Shield className="h-7 w-7 text-[#264740]" />
+            
+            {/* Mission & Vision Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* Vision Card */}
+              <div className="bg-white rounded-2xl shadow-2xl flex flex-col relative pt-14 transform hover:scale-[1.02] transition-transform duration-300 border border-white/10 overflow-hidden">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 h-20 w-20 bg-white rounded-full flex items-center justify-center shadow-xl border-4 border-[#264740]/5 z-20">
+                  <div className="h-14 w-14 bg-[#264740]/10 rounded-full flex items-center justify-center">
+                    <Target className="h-7 w-7 text-[#264740]" />
+                  </div>
+                </div>
+                <div className="bg-[#264740] py-5 text-center relative">
+                  <h3 className="text-lg font-bold text-white uppercase tracking-[0.2em] mb-0">Vision</h3>
+                </div>
+                <div className="p-8 pb-10 text-center flex-grow flex items-center justify-center">
+                  <p className="text-gray-600 leading-relaxed text-[15px] font-medium italic">
+                    "To be the globally recognized benchmark for engineering reliability and technical innovation in critical infrastructure, marine, and energy sectors."
+                  </p>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-              <p className="text-gray-600 leading-relaxed">
-                To empower our clients' operations through robust, safe, and efficient engineering solutions, delivered by a highly skilled team committed to excellence and sustainable practices.
-              </p>
+              
+              {/* Mission Card */}
+              <div className="bg-white rounded-2xl shadow-2xl flex flex-col relative pt-14 transform hover:scale-[1.02] transition-transform duration-300 border border-white/10 overflow-hidden">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 h-20 w-20 bg-white rounded-full flex items-center justify-center shadow-xl border-4 border-[#264740]/5 z-20">
+                  <div className="h-14 w-14 bg-[#264740]/10 rounded-full flex items-center justify-center">
+                    <Shield className="h-7 w-7 text-[#264740]" />
+                  </div>
+                </div>
+                <div className="bg-[#264740] py-5 text-center relative">
+                  <h3 className="text-lg font-bold text-white uppercase tracking-[0.2em] mb-0">Mission</h3>
+                </div>
+                <div className="p-8 pb-10 text-center flex-grow flex items-center justify-center">
+                  <p className="text-gray-600 leading-relaxed text-[15px] font-medium italic">
+                    "To empower our clients' operations through robust, safe, and efficient engineering solutions, delivered by a highly skilled team committed to excellence and sustainable practices."
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Large Feature Image - Spanning edge to edge with overlay */}
+        <div className="relative h-[400px] md:h-[600px] w-full mt-12 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10" />
+          <div className="absolute inset-0 bg-[#264740]/30 mix-blend-multiply z-10" />
+          {/* Subtle logo watermark over image */}
+          <div className="absolute bottom-10 right-10 z-20 opacity-20 pointer-events-none filter brightness-0 invert scale-50 md:scale-75">
+             <img src={about01Img} alt="" className="h-24 w-auto" />
+          </div>
+          <img 
+            src={aboutMissionImg} 
+            alt="Engineering Team Collaboration" 
+            className="w-full h-full object-cover grayscale-[20%]"
+          />
         </div>
       </section>
 
       {/* Engineering Approach */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-16">Our Engineering Approach</h2>
+
+
+          <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
+              >
+                Steps We Take
+              </motion.h2>
+
+          <h2 className="text-5xl font-bold tracking-tight text-gray-900 mb-16">Our Engineering Approach</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
@@ -94,6 +183,10 @@ export function About() {
           </div>
         </div>
       </section>
+
+            
+
+
     </div>
   );
 }

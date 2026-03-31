@@ -1,5 +1,6 @@
 import { Briefcase, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router";
+import projectsImg from "../components/images/projects.jpg";
 
 const projects = [
   {
@@ -56,11 +57,14 @@ export function Projects() {
   return (
     <div className="bg-white">
       {/* Page Header */}
-      <div className="bg-[#4e8377] py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#264740] to-[#4e8377]" />
+      <div 
+        className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${projectsImg})` }}
+      >
+        <div className="absolute inset-0 bg-gray-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Track Record & Experience</h1>
-          <p className="mt-4 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Track Record & Experience</h1>
+          <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             A portfolio of successful engineering executions across challenging industrial environments.
           </p>
         </div>
@@ -76,7 +80,7 @@ export function Projects() {
 
         <div className="space-y-16">
           {projects.map((project, idx) => (
-            <div key={idx} className="flex flex-col lg:flex-row gap-10 bg-gray-50 rounded-3xl p-8 sm:p-12 border border-gray-100 hover:shadow-md transition-shadow">
+            <div key={idx} className="flex flex-col lg:flex-row gap-10 bg-gray-100 rounded-3xl p-8 sm:p-12 border border-gray-100 hover:shadow-md transition-shadow">
               <div className="lg:w-1/3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4e8377]/10 text-[#4e8377] text-sm font-semibold mb-4">
                   <Briefcase className="w-4 h-4" /> {project.sector}

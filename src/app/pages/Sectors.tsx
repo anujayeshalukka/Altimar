@@ -1,4 +1,5 @@
 import { Factory, Zap, Anchor, Building2, HardHat } from "lucide-react";
+import sectorsImg from "../components/images/sectors.jpg";
 
 const sectors = [
   {
@@ -37,10 +38,14 @@ export function Sectors() {
   return (
     <div className="bg-white pb-24">
       {/* Page Header */}
-      <div className="bg-[#1a2e2a] py-16 sm:py-24 border-b border-[#264740]">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Industries We Serve</h1>
-          <p className="mt-4 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">
+      <div 
+        className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${sectorsImg})` }}
+      >
+        <div className="absolute inset-0 bg-gray-900/70" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Industries We Serve</h1>
+          <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             Applying our technical expertise across critical sectors to ensure operational continuity and safety.
           </p>
         </div>

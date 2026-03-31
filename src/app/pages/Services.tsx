@@ -1,5 +1,6 @@
 import { Zap, Anchor, Cpu, Wrench, Settings, Search, ArrowRight, Check } from "lucide-react";
 import { Link } from "react-router";
+import serviceImg from "../components/images/service.jpg";
 
 const services = [
   {
@@ -84,13 +85,16 @@ const services = [
 
 export function Services() {
   return (
-    <div className="bg-gray-50 pb-24">
+    <div className="bg-gray-100 pb-24">
       {/* Page Header */}
-      <div className="bg-[#264740] py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+      <div 
+        className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${serviceImg})` }}
+      >
+        <div className="absolute inset-0 bg-gray-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Our Services</h1>
-          <p className="mt-4 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Our Services</h1>
+          <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             Comprehensive engineering capabilities engineered for reliability and designed for scale.
           </p>
         </div>
@@ -127,7 +131,7 @@ export function Services() {
                 
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#264740] hover:text-[#4e8377] transition-colors group-hover:bg-gray-50 px-4 py-2 rounded-lg -ml-4"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#264740] hover:text-[#4e8377] transition-colors group-hover:bg-gray-100 px-4 py-2 rounded-lg -ml-4"
                 >
                   Enquire Now <ArrowRight className="h-4 w-4" />
                 </Link>

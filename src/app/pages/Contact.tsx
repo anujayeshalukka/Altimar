@@ -1,14 +1,18 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import contactImg from "../components/images/contact.jpg";
 
 export function Contact() {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-100">
       {/* Page Header */}
-      <div className="bg-[#264740] py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#4e8377_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div 
+        className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${contactImg})` }}
+      >
+        <div className="absolute inset-0 bg-gray-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Contact Us</h1>
-          <p className="mt-4 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Contact Us</h1>
+          <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             Get in touch with our engineering experts to discuss your project requirements.
           </p>
         </div>
