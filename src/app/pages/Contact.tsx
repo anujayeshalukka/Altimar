@@ -84,7 +84,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="text-base font-semibold leading-7 text-gray-900">Office</h3>
-                  <p className="mt-2 text-gray-600">100 Engineering Blvd<br />Industrial District<br />Tech City, TC 12345</p>
+                  <p className="mt-2 text-gray-600">Koyakkattu Arcade<br />Enanalloor, Ernakulam<br />Kerala, India - 686673</p>
                 </div>
               </div>
             </div>
@@ -175,16 +175,18 @@ export function Contact() {
           </div>
           </div>
 
-          {/* Map Placeholder */}
-          <div className="mt-16 w-full h-96 bg-gray-200 rounded-3xl flex items-center justify-center border border-gray-300 relative overflow-hidden shadow-inner">
-            <div className="absolute inset-0 bg-gray-300" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px)' }}></div>
-            <div className="bg-white p-6 rounded-xl shadow-2xl relative z-10 flex items-center gap-3 font-bold text-gray-800 border border-gray-100">
-              <MapPin className="h-6 w-6 text-[#264740]" /> 
-              <div className="flex flex-col">
-                <span>Interactive Map Placeholder</span>
-                <span className="text-xs font-normal text-gray-500">100 Engineering Blvd, Tech City</span>
-              </div>
-            </div>
+          {/* Map Layer */}
+          <div className="mt-16 w-full h-[450px] bg-gray-200 rounded-3xl overflow-hidden border border-gray-300 shadow-lg relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7858.903245287337!2d76.64466216298216!3d9.979502345787429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07c35d189fe367%3A0x2535d3ab55c5a499!2sALTIMAR%20ENERGY%20SOLUTIONS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1775072383292!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen={true}
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Altimar Energy Solutions Location"
+            ></iframe>
           </div>
         </div>
       </section>
