@@ -6,14 +6,34 @@ import { Textarea } from "./ui/textarea";
 
 export function QuickEnquiryModal({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulate form submission
-    setTimeout(() => {
-      setOpen(false);
-      alert("Thank you for your enquiry. We will get back to you soon!");
-    }, 500);
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    // Add FormSubmit configuration
+    formData.append("_subject", "New Quick Enquiry - Altimar Website");
+    formData.append("_template", "table");
+
+    try {
+      const response = await fetch("https://mailthis.to/sales@altimarenergy.com", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setOpen(false);
+        alert("Thank you for your enquiry. We will get back to you soon!");
+      } else {
+        alert("There was an issue sending your enquiry. Please try again or email us directly at sales@altimarenergy.com");
+      }
+    } catch (error) {
+      alert("There was an issue sending your enquiry. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -33,19 +53,19 @@ export function QuickEnquiryModal({ children }: { children: React.ReactNode }) {
             <label htmlFor="name" className="text-sm font-medium leading-none">
               Name
             </label>
-            <Input id="name" required placeholder="John Doe" />
+            <Input id="name" name="name" required placeholder="Your Name" />
           </div>
           <div className="grid gap-2">
             <label htmlFor="email" className="text-sm font-medium leading-none">
               Email
             </label>
-            <Input id="email" type="email" required placeholder="john@example.com" />
+            <Input id="email" name="email" type="email" required placeholder="Your email id" />
           </div>
           <div className="grid gap-2">
             <label htmlFor="phone" className="text-sm font-medium leading-none">
               Phone
             </label>
-            <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" />
+            <Input id="phone" name="phone" type="tel" placeholder="Your Phone Number" />
           </div>
           <div className="grid gap-2">
             <label htmlFor="message" className="text-sm font-medium leading-none">
@@ -53,6 +73,7 @@ export function QuickEnquiryModal({ children }: { children: React.ReactNode }) {
             </label>
             <Textarea
               id="message"
+              name="message"
               required
               placeholder="How can we help you?"
               className="resize-none"
@@ -60,8 +81,12 @@ export function QuickEnquiryModal({ children }: { children: React.ReactNode }) {
             />
           </div>
           <div className="flex justify-end pt-4">
-            <Button type="submit" className="bg-[#264740] hover:bg-[#1f3a34]">
-              Submit Enquiry
+            <Button 
+              type="submit" 
+              disabled={isSubmitting}
+              className="bg-[#264740] hover:bg-[#1f3a34] min-w-[140px]"
+            >
+              {isSubmitting ? "Sending..." : "Submit Enquiry"}
             </Button>
           </div>
         </form>

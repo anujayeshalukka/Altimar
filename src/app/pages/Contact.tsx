@@ -1,9 +1,10 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { motion } from "framer-motion";
 import contactImg from "../components/images/contact.jpg";
 
 export function Contact() {
   return (
-    <div className="bg-gray-100">
+    <div>
       {/* Page Header */}
       <div 
         className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
@@ -18,14 +19,43 @@ export function Contact() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Details */}
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-8">Get In Touch</h2>
-            <p className="text-lg text-gray-600 mb-12">
-              Whether you need rapid support for an ongoing issue, or want to discuss a large-scale engineering project, our team is ready to assist.
-            </p>
+      <section className="relative py-24 sm:py-32 overflow-hidden">
+        {/* Decorative background text */}
+        <span
+          className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-center w-full"
+          style={{ fontSize: "clamp(80px, 20vw, 250px)" }}
+          aria-hidden="true"
+        >
+          Contact
+        </span>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-left lg:text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
+            >
+              Get In Touch
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+            >
+              Let's discuss your project
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Contact Details */}
+            <div>
+              <p className="text-lg text-gray-600 mb-12">
+                Whether you need rapid support for an ongoing issue, or want to discuss a large-scale engineering project, our team is ready to assist.
+              </p>
 
             <div className="space-y-8">
               <div className="flex gap-x-6">
@@ -34,7 +64,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="text-base font-semibold leading-7 text-gray-900">Phone</h3>
-                  <p className="mt-2 text-gray-600">+1 (555) 123-4567</p>
+                  <p className="mt-2 text-gray-600">(+91) 9995575730</p>
                   <p className="text-sm text-gray-500 mt-1">Mon-Fri from 8am to 5pm</p>
                 </div>
               </div>
@@ -44,8 +74,8 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="text-base font-semibold leading-7 text-gray-900">Email</h3>
-                  <p className="mt-2 text-gray-600">info@altimarenergy.com</p>
-                  <p className="mt-1 text-gray-600">projects@altimarenergy.com</p>
+                  <p className="mt-2 text-gray-600">service@altimarenergy.com <br/>
+                  sales@altimarenergy.com </p>
                 </div>
               </div>
               <div className="flex gap-x-6">
@@ -59,19 +89,17 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="mt-12 w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center border border-gray-300 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gray-300" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px)' }}></div>
-              <div className="bg-white p-4 rounded-lg shadow-lg relative z-10 flex items-center gap-2 font-semibold text-gray-700">
-                <MapPin className="h-5 w-5 text-[#4e8377]" /> Interactive Map Placeholder
-              </div>
-            </div>
           </div>
+
 
           {/* Contact Form */}
           <div className="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-8">Send an Enquiry</h3>
-            <form action="#" method="POST" className="space-y-6">
+            <form action="https://mailthis.to/sales@altimarenergy.com" method="POST" className="space-y-6">
+              {/* MailThis.to Configuration */}
+              <input type="hidden" name="_subject" value="New Contact Form Enquiry - Altimar Website" />
+              <input type="hidden" name="_after" value={window.location.href} />
+              
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
                   Full Name
@@ -81,8 +109,9 @@ export function Contact() {
                     type="text"
                     name="name"
                     id="name"
+                    required
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
-                    placeholder="John Doe"
+                    placeholder="Your Name"
                   />
                 </div>
               </div>
@@ -97,8 +126,9 @@ export function Contact() {
                       type="email"
                       name="email"
                       id="email"
+                      required
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
-                      placeholder="john@example.com"
+                      placeholder="Your email id"
                     />
                   </div>
                 </div>
@@ -112,7 +142,7 @@ export function Contact() {
                       name="phone"
                       id="phone"
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="Your Phone Number"
                     />
                   </div>
                 </div>
@@ -127,6 +157,7 @@ export function Contact() {
                     name="message"
                     id="message"
                     rows={4}
+                    required
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
                     placeholder="Briefly describe your project or enquiry..."
                     defaultValue={""}
@@ -142,8 +173,21 @@ export function Contact() {
               </button>
             </form>
           </div>
+          </div>
+
+          {/* Map Placeholder */}
+          <div className="mt-16 w-full h-96 bg-gray-200 rounded-3xl flex items-center justify-center border border-gray-300 relative overflow-hidden shadow-inner">
+            <div className="absolute inset-0 bg-gray-300" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px)' }}></div>
+            <div className="bg-white p-6 rounded-xl shadow-2xl relative z-10 flex items-center gap-3 font-bold text-gray-800 border border-gray-100">
+              <MapPin className="h-6 w-6 text-[#264740]" /> 
+              <div className="flex flex-col">
+                <span>Interactive Map Placeholder</span>
+                <span className="text-xs font-normal text-gray-500">100 Engineering Blvd, Tech City</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

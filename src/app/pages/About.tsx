@@ -31,27 +31,46 @@ export function About() {
       </div>
 
       {/* Company Intro */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+      <section className="relative py-24 sm:py-32 overflow-hidden">
+        {/* Decorative background text */}
+        <span
+          className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-center w-full"
+          style={{ fontSize: "clamp(80px, 20vw, 250px)" }}
+          aria-hidden="true"
+        >
+          About
+        </span>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-left lg:text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
+            >
+              Altimar Energy Solutions
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+            >
+              Trusted Engineering Excellence
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 text-center items-center">
+            {/* <div>
               <img
                 src={about01Img}
                 alt="Marine Shipbuilding"
                 className="rounded-2xl object-cover shadow-xl h-[600px] w-full"
               />
-            </div>
+            </div> */}
             <div className="pt-2">
-              <motion.span 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="inline-block font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider mb-2"
-              >
-                About Us
-              </motion.span>
-              <h2 className="text-5xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">Company Introduction</h2>
               <div className="space-y-6 text-lg text-gray-600">
                 <p>
                   Altimar Energy Solutions is a premier engineering and technical services provider specializing in the energy, marine, and industrial sectors. 

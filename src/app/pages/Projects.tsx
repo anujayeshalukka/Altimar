@@ -1,5 +1,6 @@
 import { Briefcase, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router";
+import { motion } from "framer-motion";
 import projectsImg from "../components/images/projects.jpg";
 
 const projects = [
@@ -70,13 +71,36 @@ export function Projects() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Proven Execution</h2>
-          <p className="text-lg text-gray-600">
-            Our experience spans hundreds of projects globally, demonstrating our capability to handle multi-disciplinary engineering scopes from concept to final handover. Below is a selection of typical project profiles that highlight our diverse capabilities.
-          </p>
-        </div>
+      <section className="relative py-24 sm:py-32 overflow-hidden">
+        {/* Decorative background text */}
+        <span
+          className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-center w-full"
+          style={{ fontSize: "clamp(80px, 20vw, 250px)" }}
+          aria-hidden="true"
+        >
+          Projects
+        </span>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-left lg:text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
+            >
+              Proven Execution
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+            >
+              Real-world engineering impact
+            </motion.p>
+          </div>
 
         <div className="space-y-16">
           {projects.map((project, idx) => (
@@ -109,19 +133,9 @@ export function Projects() {
           ))}
         </div>
 
-        <div className="mt-20 text-center bg-[#264740] rounded-3xl p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">Have a similar project?</h2>
-          <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-            Our team is ready to discuss your specific requirements and develop a tailored engineering solution.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 bg-white text-[#264740] px-8 py-3 rounded-md font-bold hover:bg-gray-100 transition-colors"
-          >
-            Contact our Team <ArrowRight className="w-5 h-5" />
-          </Link>
+       
         </div>
-      </div>
+      </section>
     </div>
   );
 }

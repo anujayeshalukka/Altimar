@@ -1,5 +1,6 @@
 import { Zap, Anchor, Cpu, Wrench, Settings, Search, ArrowRight, Check } from "lucide-react";
 import { Link } from "react-router";
+import { motion } from "framer-motion";
 import serviceImg from "../components/images/service.jpg";
 
 const services = [
@@ -83,9 +84,24 @@ const services = [
   }
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+};
+
 export function Services() {
   return (
-    <div className="bg-gray-100 pb-24">
+    <div className="bg-white min-h-screen">
       {/* Page Header */}
       <div 
         className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
@@ -93,53 +109,109 @@ export function Services() {
       >
         <div className="absolute inset-0 bg-gray-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Our Services</h1>
+          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl">Our Services</h1>
           <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             Comprehensive engineering capabilities engineered for reliability and designed for scale.
           </p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-16 sm:mt-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16">
-          {services.map((service) => (
-            <div key={service.id} className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 relative group overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
-                <service.icon className="w-48 h-48 text-[#264740]" />
-              </div>
-              
-              <div className="relative z-10">
-                <div className="h-16 w-16 bg-[#264740] rounded-2xl flex items-center justify-center mb-8 shadow-md">
-                  <service.icon className="h-8 w-8 text-white" />
+      {/* Main Content Area */}
+      <section className="relative py-24 sm:py-32 overflow-hidden">
+        {/* Decorative background text */}
+        <span
+          className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-center w-full"
+          style={{ fontSize: "clamp(80px, 20vw, 250px)" }}
+          aria-hidden="true"
+        >
+          Services
+        </span>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-left lg:text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
+            >
+              Excellence in Engineering
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+            >
+              Precision technical solutions <br className="hidden sm:block" /> for critical infrastructure
+            </motion.p>
+          </div>
+
+          <motion.div 
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {services.map((service) => (
+              <motion.div 
+                key={service.id} 
+                variants={item}
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                className="group relative bg-[#f8faf9] rounded-[40px] p-8 sm:p-10 border border-gray-100 hover:bg-white hover:shadow-[0_20px_50px_rgba(38,71,64,0.1)] transition-all duration-500 overflow-hidden"
+              >
+                {/* Subtle border glow on hover */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#264740]/10 rounded-[40px] transition-all duration-500" />
+                
+                {/* Background Large Icon */}
+                {/* <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-700 pointer-events-none">
+                  <service.icon className="w-64 h-64 text-[#264740]" />
+                </div> */}
+                
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="h-16 w-16 bg-[#398677] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:bg-[#4e8377] transition-all duration-500">
+                    <service.icon className="h-8 w-8 text-white" />
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#264740] transition-colors">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-8 text-base leading-relaxed">
+                    {service.description}
+                  </p>
+                  
+                  <ul className="space-y-4 mb-auto">
+                    {service.points.map((point, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-1">
+                          <div className="h-5 w-5 rounded-full bg-[#4e8377]/10 flex items-center justify-center">
+                            <Check className="h-3 w-3 text-[#4e8377]" />
+                          </div>
+                        </div>
+                        <span className="text-gray-700 text-sm font-medium">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="mt-10">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 rounded-md bg-[#264740] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#1f3a34] transition-all transform active:scale-95"
+                    >
+                      Enquire Now <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
-                
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h2>
-                <p className="text-gray-600 mb-8 text-lg">
-                  {service.description}
-                </p>
-                
-                <ul className="space-y-4 mb-10">
-                  {service.points.map((point, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 mt-1">
-                        <Check className="h-5 w-5 text-[#4e8377]" />
-                      </div>
-                      <span className="text-gray-700">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#264740] hover:text-[#4e8377] transition-colors group-hover:bg-gray-100 px-4 py-2 rounded-lg -ml-4"
-                >
-                  Enquire Now <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-      </div>
+      </section>
+
+     
     </div>
   );
 }

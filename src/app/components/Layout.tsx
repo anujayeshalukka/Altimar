@@ -45,9 +45,9 @@ function Header() {
               <Phone className="h-3.5 w-3.5" />
               <span>+1 (555) 123-4567</span>
             </a>
-            <a href="mailto:info@altimarenergy.com" className="flex items-center gap-1.5 hover:text-gray-200 transition-colors">
+            <a href="mailto:services@altimarenergy.com" className="flex items-center gap-1.5 hover:text-gray-200 transition-colors">
               <Mail className="h-3.5 w-3.5" />
-              <span>info@altimarenergy.com</span>
+              <span>services@altimarenergy.com</span>
             </a>
           </div>
         </div>
@@ -205,7 +205,7 @@ function Footer() {
               <div>
                 <h3 className="text-sm font-bold leading-6 text-gray-900 uppercase tracking-wider">Contact</h3>
                 <ul role="list" className="mt-6 space-y-4 text-sm leading-6 text-gray-600">
-                  <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-[#264740]" /> info@altimarenergy.com</li>
+                  <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-[#264740]" /> services@altimarenergy.com</li>
                   <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-[#264740]" /> +1 (555) 123-4567</li>
                   <li className="flex items-start gap-2"><Home className="h-4 w-4 text-[#264740] mt-1" /> 100 Engineering Blvd,<br />Industrial District</li>
                 </ul>

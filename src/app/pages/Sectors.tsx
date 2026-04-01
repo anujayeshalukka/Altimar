@@ -1,5 +1,7 @@
 import { Factory, Zap, Anchor, Building2, HardHat } from "lucide-react";
+import { motion } from "framer-motion";
 import sectorsImg from "../components/images/sectors.jpg";
+import portsOffshoreImg from "../components/images/ports_offshore.png";
 
 const sectors = [
   {
@@ -17,7 +19,7 @@ const sectors = [
   {
     title: "Ports & Offshore",
     icon: Building2,
-    image: "https://images.unsplash.com/photo-1770099527529-0b8be652ade7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvZmZzaG9yZSUyMHJpZyUyMGVuZXJneXxlbnwxfHx8fDE3NzQwOTA1ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: portsOffshoreImg,
     description: "Robust solutions for harsh marine environments, oil rigs, and port logistics infrastructure."
   },
   {
@@ -36,7 +38,7 @@ const sectors = [
 
 export function Sectors() {
   return (
-    <div className="bg-white pb-24">
+    <div className="bg-white ">
       {/* Page Header */}
       <div 
         className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
@@ -51,8 +53,38 @@ export function Sectors() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-16 sm:mt-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="relative py-24 sm:py-32 overflow-hidden">
+        {/* Decorative background text */}
+        <span
+          className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-center w-full"
+          style={{ fontSize: "clamp(80px, 20vw, 250px)" }}
+          aria-hidden="true"
+        >
+          Sectors
+        </span>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-left lg:text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
+            >
+              Industry Expertise
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+            >
+              Critical sectors we empower
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sectors.map((sector, idx) => (
             <div key={idx} className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 bg-white">
               <div className="h-64 overflow-hidden relative">
@@ -76,8 +108,9 @@ export function Sectors() {
               </div>
             </div>
           ))}
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
