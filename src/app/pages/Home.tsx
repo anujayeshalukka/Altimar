@@ -50,16 +50,16 @@ export function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl font-light text-left tracking-tight text-white mb-7 drop-shadow-lg sm:text-7xl md:text-8xl lg:text-tight"
+              className="text-5xl font-bold text-left tracking-tight text-white mb-7 drop-shadow-lg sm:text-7xl md:text-8xl lg:text-tight"
             >
-              Engineering Solutions Built for <span className="font-bold">Real-World</span> Performance
+              Engineering & Energy Solutions
             </motion.h1>
 
             <div className="flex gap-6 mb-10 justify-start items-start">
               <span className="bg-white h-[1px] w-[100px] md:w-[200px] shrink-0 hidden sm:block mt-3"></span>
               <div className="flex flex-col text-left">
                 <p className="text-[16px] leading-6 text-gray-200 drop-shadow-md max-w-xl m-0 mb-8">
-                  Altimar provides comprehensive engineering, marine, and industrial services designed for reliability, safety, and operational excellence in demanding environments.
+                  Altimar provides comprehensive energy engineering services, marine engineering services, and industrial engineering solutions designed for reliability, safety, and operational excellence in demanding environments.
                 </p>
 
               </div>
@@ -107,7 +107,7 @@ export function Home() {
               >
                 Altimar Energy Solutions
               </motion.h2>
-              <motion.p 
+              <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -115,7 +115,7 @@ export function Home() {
                 className="mt-2 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl"
               >
                 Trusted Engineering Excellence
-              </motion.p>
+              </motion.h2>
 
               <p className="mt-6 text-lg leading-8 text-gray-600 max-w-5xl lg:mx-auto">
                 Altimar Energy is an engineering-driven organization delivering energy systems, marine and industrial engineering services, system integration, and lifecycle technical support. We specialise in execution, commissioning, troubleshooting, maintenance, and retrofit solutions for critical engineering systems.
@@ -128,17 +128,17 @@ export function Home() {
               </Link>
               </div>
               <div className="mt-16 text-left ">
-                <h3 className="sm:text-xl text-sm font-bold text-[#264740] uppercase tracking-wider mb-8 flex items-center gap-3">
+                <h2 className="sm:text-xl text-sm font-bold text-[#264740] uppercase tracking-wider mb-8 flex items-center gap-3">
                   <span className="h-px w-8 bg-[#264740] "></span>
                   What We Do
-                </h3>
+                </h2>
                 <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 text-left lg:text-center">
                   {[
-                    { title: "Energy & Utility Systems Engineering", icon: Zap },
-                    { title: "Marine & Shipboard Engineering Services", icon: Anchor },
-                    { title: "Electrical, Control & Automation Support", icon: Cpu },
-                    { title: "Equipment Supply, Integration & Support", icon: Settings },
-                    { title: "Testing, Commissioning & Overhauling", icon: ShieldCheck }
+                    { title: "Energy Engineering Services", icon: Zap },
+                    { title: "Marine Engineering Services", icon: Anchor },
+                    { title: "Electrical & Automation Services", icon: Cpu },
+                    { title: "Industrial Engineering Solutions", icon: Settings },
+                    { title: "Commissioning & Maintenance Services", icon: ShieldCheck }
                   ].map((item, idx) => (
                     <div key={idx} className="p-4 sm:p-6 rounded-2xl bg-white border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 text-left lg:text-center">
                       <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#4e8377] shadow-sm flex items-center justify-center mb-4 transition-colors lg:mx-auto">
@@ -224,7 +224,7 @@ export function Home() {
                 >
                   Technical Capabilities
                 </motion.h2>
-                <motion.p 
+                <motion.h2 
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -232,7 +232,7 @@ export function Home() {
                   className="mt-2 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl"
                 >
                   Our Core Services
-                </motion.p>
+                </motion.h2>
               </div>
 
               <div className="mt-6 flex md:ml-4 md:mt-0">
@@ -379,7 +379,7 @@ export function Home() {
               >
                 Expertise & Reliability
               </motion.h2>
-              <motion.p 
+              <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -387,7 +387,7 @@ export function Home() {
                 className="mt-2 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl"
               >
                 Why Choose Altimar?
-              </motion.p>
+              </motion.h2>
             </div>
 
 

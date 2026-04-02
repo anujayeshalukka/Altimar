@@ -47,7 +47,9 @@ function Header() {
             </a>
             <a href="mailto:service@altimarenergy.com" className="flex items-center gap-1.5 hover:text-gray-200 transition-colors">
               <Mail className="h-3.5 w-3.5" />
-              <span>service@altimarenergy.com</span>
+              <span>service@altimarenergy.com 
+              
+              </span>
             </a>
           </div>
         </div>
@@ -205,9 +207,9 @@ function Footer() {
               <div>
                 <h3 className="text-sm font-bold leading-6 text-gray-900 uppercase tracking-wider">Contact</h3>
                 <ul role="list" className="mt-6 space-y-4 text-sm leading-6 text-gray-600">
-                  <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-[#264740]" /> service@altimarenergy.com</li>
+                  <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-[#264740]" /> service@altimarenergy.com <br/> sales@altimarenergy.com</li>
                   <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-[#264740]" /> (+91) 9995575730</li>
-                  <li className="flex items-start gap-2"><Home className="h-4 w-4 text-[#264740] mt-1" /> Koyakkattu Arcade,<br />Enanalloor, Ernakulam</li>
+                  <li className="flex items-start gap-2"><Home className="h-4 w-4 text-[#264740] mt-1" />Door No. 4/P, Koyakkattu Arcade,<br />Enanalloor, Ernakulam</li>
                 </ul>
               </div>
             </div>
@@ -275,7 +277,7 @@ function CallToAction() {
 
         <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
           <Link
-            to="/contact"
+            to="/contact#enquiry-form"
             className="rounded-md bg-transparent border border-white px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-white hover:text-[#264740] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             Get in touch
@@ -290,7 +292,9 @@ export function Layout() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
 
   return (

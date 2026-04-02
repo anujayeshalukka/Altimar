@@ -23,7 +23,7 @@ export function About() {
       >
         <div className="absolute inset-0 bg-gray-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl">About Us</h1>
+          <h2 className="text-5xl font-bold tracking-tight text-white sm:text-7xl">About Us</h2>
           <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             Delivering technical excellence and robust engineering solutions across critical industries.
           </p>
@@ -43,15 +43,15 @@ export function About() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-left lg:text-center mb-20">
-            <motion.h2 
+            <motion.h3 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
             >
               Altimar Energy Solutions
-            </motion.h2>
-            <motion.p 
+            </motion.h3>
+            <motion.h3 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -59,7 +59,7 @@ export function About() {
               className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
             >
               Trusted Engineering Excellence
-            </motion.p>
+            </motion.h3>
           </div>
 
           <div className="grid grid-cols-1 text-center items-center">
@@ -100,10 +100,10 @@ export function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-start mb-24">
             <div className="text-left pt-12">
-              <h2 className="text-4xl font-light tracking-tight text-white sm:text-6xl mb-8 leading-tight">
+              <h3 className="text-4xl font-light tracking-tight text-white sm:text-6xl mb-8 leading-tight">
                 Our <span className="font-bold">Mission</span> and <br />
                 <span className="font-bold">Vision</span> Statement
-              </h2>
+              </h3>
               <div className="h-1 w-24 bg-white/20 mb-8 rounded-full" />
               <p className="text-lg leading-8 text-white/80 max-w-lg font-light">
                 Delivering technical excellence and robust engineering solutions across critical industries by defining purpose, excellence, and operational reliability for our global partners.
@@ -120,7 +120,7 @@ export function About() {
                   </div>
                 </div>
                 <div className="bg-[#264740] py-5 text-center relative">
-                  <h3 className="text-lg font-bold text-white uppercase tracking-[0.2em] mb-0">Vision</h3>
+                  <h4 className="text-lg font-bold text-white uppercase tracking-[0.2em] mb-0">Vision</h4>
                 </div>
                 <div className="p-8 pb-10 text-center flex-grow flex items-center justify-center">
                   <p className="text-gray-600 leading-relaxed text-[15px] font-medium italic">
@@ -137,7 +137,7 @@ export function About() {
                   </div>
                 </div>
                 <div className="bg-[#264740] py-5 text-center relative">
-                  <h3 className="text-lg font-bold text-white uppercase tracking-[0.2em] mb-0">Mission</h3>
+                  <h4 className="text-lg font-bold text-white uppercase tracking-[0.2em] mb-0">Mission</h4>
                 </div>
                 <div className="p-8 pb-10 text-center flex-grow flex items-center justify-center">
                   <p className="text-gray-600 leading-relaxed text-[15px] font-medium italic">
@@ -170,7 +170,7 @@ export function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
 
 
-          <motion.h2 
+          <motion.h3 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -178,9 +178,9 @@ export function About() {
                 className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
               >
                 Steps We Take
-              </motion.h2>
+              </motion.h3>
 
-          <h2 className="text-5xl font-bold tracking-tight text-gray-900 mb-16">Our Engineering Approach</h2>
+          <h3 className="text-5xl font-bold tracking-tight text-gray-900 mb-16">Our Engineering Approach</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
@@ -195,7 +195,7 @@ export function About() {
                     0{idx + 1}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h3>
+                <h4 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h4>
                 <p className="text-gray-600 max-w-sm">{item.desc}</p>
               </div>
             ))}

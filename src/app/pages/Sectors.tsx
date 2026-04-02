@@ -40,13 +40,13 @@ export function Sectors() {
   return (
     <div className="bg-white ">
       {/* Page Header */}
-      <div 
+      <div
         className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
         style={{ backgroundImage: `url(${sectorsImg})` }}
       >
         <div className="absolute inset-0 bg-gray-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Industries We Serve</h1>
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Industries We Serve</h2>
           <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             Applying our technical expertise across critical sectors to ensure operational continuity and safety.
           </p>
@@ -65,15 +65,15 @@ export function Sectors() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-left lg:text-center mb-20">
-            <motion.h2 
+            <motion.h3
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
             >
               Industry Expertise
-            </motion.h2>
-            <motion.p 
+            </motion.h3>
+            <motion.h3
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -81,33 +81,33 @@ export function Sectors() {
               className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
             >
               Critical sectors we empower
-            </motion.p>
+            </motion.h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sectors.map((sector, idx) => (
-            <div key={idx} className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 bg-white">
-              <div className="h-64 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-                <img
-                  src={sector.image}
-                  alt={sector.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute bottom-6 left-6 z-20 flex items-center gap-3 text-white">
-                  <div className="p-2 bg-white/20 backdrop-blur-md rounded-lg">
-                    <sector.icon className="h-6 w-6 text-white" />
+            {sectors.map((sector, idx) => (
+              <div key={idx} className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 bg-white">
+                <div className="h-64 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+                  <img
+                    src={sector.image}
+                    alt={sector.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute bottom-6 left-6 z-20 flex items-center gap-3 text-white">
+                    <div className="p-2 bg-white/20 backdrop-blur-md rounded-lg">
+                      <sector.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold">{sector.title}</h4>
                   </div>
-                  <h2 className="text-xl font-bold">{sector.title}</h2>
+                </div>
+                <div className="p-6">
+                  <p className="text-gray-600">
+                    {sector.description}
+                  </p>
                 </div>
               </div>
-              <div className="p-6">
-                <p className="text-gray-600">
-                  {sector.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
           </div>
         </div>
       </section>

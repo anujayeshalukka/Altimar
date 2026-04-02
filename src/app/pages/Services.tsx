@@ -6,7 +6,7 @@ import serviceImg from "../components/images/service.jpg";
 const services = [
   {
     id: "energy",
-    title: "Energy & Utility Systems",
+    title: "Energy Engineering Services",
     icon: Zap,
     description: "Comprehensive engineering for power generation, distribution, and critical utility infrastructure.",
     points: [
@@ -19,7 +19,7 @@ const services = [
   },
   {
     id: "marine",
-    title: "Marine & Shipboard Engineering",
+    title: "Marine Engineering Services",
     icon: Anchor,
     description: "Specialized engineering services for maritime vessels, offshore platforms, and port facilities.",
     points: [
@@ -32,7 +32,7 @@ const services = [
   },
   {
     id: "automation",
-    title: "Electrical, Control & Automation",
+    title: "Electrical & Automation Services",
     icon: Cpu,
     description: "Advanced automation, control system design, and implementation for complex industrial processes.",
     points: [
@@ -45,7 +45,7 @@ const services = [
   },
   {
     id: "supply",
-    title: "Equipment Supply & Integration",
+    title: "Industrial Engineering Solutions",
     icon: Settings,
     description: "Sourcing and seamless integration of high-quality engineering components and systems.",
     points: [
@@ -71,7 +71,7 @@ const services = [
   },
   {
     id: "maintenance",
-    title: "Maintenance & Retrofit",
+    title: "Commissioning & Maintenance Services",
     icon: Wrench,
     description: "Lifecycle support, predictive maintenance, and strategic system upgrades for aging assets.",
     points: [
@@ -109,7 +109,7 @@ export function Services() {
       >
         <div className="absolute inset-0 bg-gray-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl">Our Services</h1>
+          <h2 className="text-5xl font-bold tracking-tight text-white sm:text-7xl">Our Core Services</h2>
           <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             Comprehensive engineering capabilities engineered for reliability and designed for scale.
           </p>
@@ -129,15 +129,15 @@ export function Services() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-left lg:text-center mb-20">
-            <motion.h2 
+            <motion.h3 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
             >
               Excellence in Engineering
-            </motion.h2>
-            <motion.p 
+            </motion.h3>
+            <motion.h3 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -145,7 +145,7 @@ export function Services() {
               className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
             >
               Precision technical solutions <br className="hidden sm:block" /> for critical infrastructure
-            </motion.p>
+            </motion.h3>
           </div>
 
           <motion.div 
@@ -175,9 +175,9 @@ export function Services() {
                     <service.icon className="h-8 w-8 text-white" />
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#264740] transition-colors">
+                  <h4 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#264740] transition-colors">
                     {service.title}
-                  </h3>
+                  </h4>
                   
                   <p className="text-gray-600 mb-8 text-base leading-relaxed">
                     {service.description}

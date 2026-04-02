@@ -1,8 +1,59 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router";
+import { MapPin, Phone, Mail, Clock, CheckCircle2, Send, Loader2, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import contactImg from "../components/images/contact.jpg";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../components/ui/dialog";
+import { Button } from "../components/ui/button";
 
 export function Contact() {
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [open, setOpen] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash === '#enquiry-form') {
+      const element = document.getElementById('enquiry-form');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        nameInputRef.current?.focus();
+      }
+    }
+  }, [hash]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("_captcha", "false");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/sales@altimarenergy.com", {
+        method: "POST",
+        headers: { 
+          'Accept': 'application/json'
+        },
+        body: formData,
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setOpen(true);
+        formRef.current?.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
+  const [error, setError] = useState<string | null>(null);
+
   return (
     <div>
       {/* Page Header */}
@@ -12,7 +63,7 @@ export function Contact() {
       >
         <div className="absolute inset-0 bg-gray-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Contact Us</h1>
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Contact Us</h2>
           <p className="mt-6 text-lg leading-8 text-gray-200 max-w-2xl mx-auto">
             Get in touch with our engineering experts to discuss your project requirements.
           </p>
@@ -31,15 +82,15 @@ export function Contact() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-left lg:text-center mb-20">
-            <motion.h2 
+            <motion.h3 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-bold text-sm leading-8 text-[#4e8377] uppercase tracking-wider"
             >
               Get In Touch
-            </motion.h2>
-            <motion.p 
+            </motion.h3>
+            <motion.h3 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -47,7 +98,7 @@ export function Contact() {
               className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
             >
               Let's discuss your project
-            </motion.p>
+            </motion.h3>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -63,7 +114,7 @@ export function Contact() {
                   <Phone className="h-6 w-6 text-[#264740]" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold leading-7 text-gray-900">Phone</h3>
+                  <h4 className="text-base font-semibold leading-7 text-gray-900">Phone</h4>
                   <p className="mt-2 text-gray-600">(+91) 9995575730</p>
                   <p className="text-sm text-gray-500 mt-1">Mon-Fri from 8am to 5pm</p>
                 </div>
@@ -73,7 +124,7 @@ export function Contact() {
                   <Mail className="h-6 w-6 text-[#264740]" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold leading-7 text-gray-900">Email</h3>
+                  <h4 className="text-base font-semibold leading-7 text-gray-900">Email</h4>
                   <p className="mt-2 text-gray-600">service@altimarenergy.com <br/>
                   sales@altimarenergy.com </p>
                 </div>
@@ -83,8 +134,8 @@ export function Contact() {
                   <MapPin className="h-6 w-6 text-[#264740]" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold leading-7 text-gray-900">Office</h3>
-                  <p className="mt-2 text-gray-600">Koyakkattu Arcade<br />Enanalloor, Ernakulam<br />Kerala, India - 686673</p>
+                  <h4 className="text-base font-semibold leading-7 text-gray-900">Office</h4>
+                  <p className="mt-2 text-gray-600">Door No. 4/P, Koyakkattu Arcade<br />Enanalloor, Ernakulam<br />Kerala, India - 686673</p>
                 </div>
               </div>
             </div>
@@ -93,12 +144,14 @@ export function Contact() {
 
 
           {/* Contact Form */}
-          <div className="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
+          <div id="enquiry-form" className="bg-white p-10 rounded-3xl shadow-lg border border-gray-100 scroll-mt-24">
             <h3 className="text-2xl font-bold text-gray-900 mb-8">Send an Enquiry</h3>
-            <form action="https://mailthis.to/sales@altimarenergy.com" method="POST" className="space-y-6">
-              {/* MailThis.to Configuration */}
-              <input type="hidden" name="_subject" value="New Contact Form Enquiry - Altimar Website" />
-              <input type="hidden" name="_after" value={window.location.href} />
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              {status === 'error' && (
+                <div className="p-4 bg-red-50 text-red-700 rounded-md text-sm mb-4">
+                  There was an error sending your message. Please try again or contact us via email.
+                </div>
+              )}
               
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
@@ -109,6 +162,7 @@ export function Contact() {
                     type="text"
                     name="name"
                     id="name"
+                    ref={nameInputRef}
                     required
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
                     placeholder="Your Name"
@@ -169,9 +223,31 @@ export function Contact() {
                 type="submit"
                 className="block w-full rounded-md bg-[#264740] px-3.5 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#1f3a34] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#264740] transition-colors mt-8"
               >
-                Submit Enquiry
+                {status === 'submitting' ? "Sending..." : "Submit Enquiry"}
               </button>
             </form>
+
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader className="flex flex-col items-center justify-center text-center">
+                  <div className="h-12 w-12 bg-green-50 rounded-full flex items-center justify-center mb-4">
+                    <CheckCircle2 className="h-6 w-6 text-green-600" />
+                  </div>
+                  <DialogTitle className="text-xl font-bold text-gray-900">Message Sent Successfully</DialogTitle>
+                  <DialogDescription className="mt-2 text-gray-500">
+                    Thank you for contacting Altimar Energy. We have received your message and will get back to you shortly.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="mt-6">
+                  <Button 
+                    onClick={() => setOpen(false)} 
+                    className="w-full bg-[#264740] hover:bg-[#1f3a34] text-white py-6"
+                  >
+                    Close
+                  </Button>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
           </div>
 
