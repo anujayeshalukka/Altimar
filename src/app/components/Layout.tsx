@@ -131,9 +131,9 @@ function Header() {
               <div className="py-6">
                 <QuickEnquiryModal>
                   <button
-                    className="-mx-3 block w-full text-left rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 hover:text-[#4e8377] cursor-pointer"
+                    className="w-full text-center rounded-lg px-3 py-3 text-base font-semibold leading-7 bg-[#264740] text-white hover:bg-[#1f3a34] transition-all duration-200 shadow-sm flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    Quick Enquiry
+                    Quick Enquiry <ArrowRight className="h-4 w-4" />
                   </button>
                 </QuickEnquiryModal>
               </div>
