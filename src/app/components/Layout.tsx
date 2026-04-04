@@ -4,6 +4,7 @@ import { Menu, X, ArrowRight, Phone, Mail, Home, Briefcase, FolderOpen, PhoneCal
 import { useState, useEffect } from "react";
 import altimarLogo from "./images/altimar-footer.png";
 import { QuickEnquiryModal } from "./QuickEnquiryModal";
+import { WhatsAppButton } from "./WhatsAppButton";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -13,6 +14,7 @@ const navigation = [
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
+
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -305,6 +307,7 @@ export function Layout() {
       </main>
       <CallToAction />
       <Footer />
+      <WhatsAppButton />
       <MobileBottomNav />
     </div>
   );

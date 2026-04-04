@@ -45,7 +45,7 @@ export function Home() {
           </div> */}
 
           <div className="relative z-10 mx-auto">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -90,7 +90,7 @@ export function Home() {
         <section className="py-20 sm:py-32 relative overflow-hidden lg:min-h-screen lg:flex lg:items-center">
           {/* Decorative background text */}
           <span
-            className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-200/50 font-bold leading-none select-none pointer-events-none z-0 text-center w-full"
+            className="absolute top-0 left-0 lg:left-1/2 translate-x-0 lg:-translate-x-1/2 text-gray-200/50 font-bold leading-none select-none pointer-events-none z-0 text-left lg:text-center w-full px-6 lg:px-0"
             style={{ fontSize: "clamp(80px, 20vw, 200px)" }}
             aria-hidden="true"
           >
@@ -98,7 +98,7 @@ export function Home() {
           </span>
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
             <div className="text-left lg:text-center">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -107,7 +107,7 @@ export function Home() {
               >
                 Altimar Energy Solutions
               </motion.h2>
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -123,9 +123,9 @@ export function Home() {
               </p>
               <p className="mt-6 font-semibold text-lg leading-8 text-gray-600">Engineering Systems | Energy Solutions | Technical Services</p>
               <div className="mt-10 ">
-                 <Link to="/contact" className="rounded-md bg-[#264740] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#1f3a34] transition-colors">
-                Contact Us
-              </Link>
+                <Link to="/contact" className="rounded-md bg-[#264740] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#1f3a34] transition-colors">
+                  Contact Us
+                </Link>
               </div>
               <div className="mt-16 text-left ">
                 <h2 className="sm:text-xl text-sm font-bold text-[#264740] uppercase tracking-wider mb-8 flex items-center gap-3">
@@ -156,16 +156,16 @@ export function Home() {
         </section>
 
         {/* Our Vision Section with Parallax */}
-        <section 
+        <section
           className="relative py-32 sm:py-48 bg-fixed bg-center bg-cover overflow-hidden"
           style={{ backgroundImage: `url(${logisticsBg})` }}
         >
           {/* Dark Gray Overlay */}
           <div className="absolute inset-0 bg-gray-900/90 mix-blend-multiply" aria-hidden="true" />
           <div className="absolute inset-0 bg-[#264740]/20" aria-hidden="true" />
-          
+
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -174,7 +174,7 @@ export function Home() {
             >
               Our Vision
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -185,7 +185,7 @@ export function Home() {
             </motion.p>
 
 
-<div className="flex gap-6 mt-4 justify-center sm:justify-end items-center">
+            <div className="flex gap-6 mt-4 justify-center sm:justify-end items-center">
               <span className="bg-white h-[1px] w-[100px] md:w-[200px] shrink-0 hidden sm:block mt-3"></span>
               <div className="flex flex-col text-center sm:text-right">
                 <p className="text-[16px] leading-6 text-gray-200 drop-shadow-md max-w-xl m-0 ">
@@ -199,23 +199,27 @@ export function Home() {
         </section>
 
         {/* Services Overview */}
-        <section 
+        <section
           className="py-20 sm:py-32 relative overflow-hidden bg-center bg-cover">
           {/* Overlay for readability */}
           {/* <div className="absolute inset-0 bg-white/90 backdrop-blur-[2px]" aria-hidden="true" /> */}
-          
-          <span
-            className="absolute top-0 left-0 w-full text-center lg:text-left text-gray-100 font-bold leading-none select-none pointer-events-none z-0"
-            style={{ fontSize: "clamp(80px, 20vw, 200px)" }}
-            aria-hidden="true"
-          >
-            Services
-          </span>
+
+          <div className="absolute top-0 left-0 w-full pointer-events-none">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <span
+                className="text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-left block"
+                style={{ fontSize: "clamp(80px, 20vw, 200px)" }}
+                aria-hidden="true"
+              >
+                Services
+              </span>
+            </div>
+          </div>
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
 
             <div className="mb-16 md:flex md:items-center md:justify-between">
               <div>
-                <motion.h2 
+                <motion.h2
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -224,7 +228,7 @@ export function Home() {
                 >
                   Technical Capabilities
                 </motion.h2>
-                <motion.h2 
+                <motion.h2
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -244,8 +248,8 @@ export function Home() {
 
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { 
-                  title: "Energy & Utility Systems", 
+                {
+                  title: "Energy & Utility Systems",
                   image: energyImg,
                   points: [
                     "Power generation and distribution support",
@@ -254,8 +258,8 @@ export function Home() {
                     "Operational and performance support"
                   ]
                 },
-                { 
-                  title: "Marine & Shipboard Engineering", 
+                {
+                  title: "Marine & Shipboard Engineering",
                   image: marineImg,
                   points: [
                     "Shipboard electrical and automation systems",
@@ -264,8 +268,8 @@ export function Home() {
                     "Onboard and shipyard engineering assistance"
                   ]
                 },
-                { 
-                  title: "Electrical, Control & Automation", 
+                {
+                  title: "Electrical, Control & Automation",
                   image: electricalImg,
                   points: [
                     "Control and monitoring systems",
@@ -274,8 +278,8 @@ export function Home() {
                     "System testing and functional validation"
                   ]
                 },
-                { 
-                  title: "Equipment Supply & Integration", 
+                {
+                  title: "Equipment Supply & Integration",
                   image: equipmentImg,
                   points: [
                     "Supply of engineering equipment and spares",
@@ -284,8 +288,8 @@ export function Home() {
                     "Technical documentation and as-built records"
                   ]
                 },
-                { 
-                  title: "Testing & Commissioning", 
+                {
+                  title: "Testing & Commissioning",
                   image: testingImg,
                   points: [
                     "Pre-commissioning and commissioning activities",
@@ -294,8 +298,8 @@ export function Home() {
                     "Trials and acceptance support"
                   ]
                 },
-                { 
-                  title: "Maintenance & Retrofit", 
+                {
+                  title: "Maintenance & Retrofit",
                   image: maintenanceImg,
                   points: [
                     "Preventive and corrective maintenance",
@@ -305,30 +309,30 @@ export function Home() {
                   ]
                 }
               ].map((service, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
                   className={`group relative h-[400px] cursor-pointer overflow-hidden rounded-3xl bg-gray-900 shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${expandedIdx === idx ? 'shadow-2xl -translate-y-2' : ''}`}
                 >
                   {/* Background Image */}
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
+                  <img
+                    src={service.image}
+                    alt={service.title}
                     className={`absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-40 ${expandedIdx === idx ? 'scale-110 opacity-40' : ''}`}
                   />
-                  
+
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80" />
-                  
+
                   {/* Dark Overlay on Hover */}
                   <div className={`absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${expandedIdx === idx ? 'opacity-100' : ''}`} />
-                  
+
                   {/* Content */}
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
                     <h3 className={`text-2xl font-bold text-white mb-4 transition-all duration-300 ${expandedIdx === idx ? 'mb-6' : 'group-hover:mb-6'}`}>
                       {service.title}
                     </h3>
-                    
+
                     {/* Points list - revealed on hover on desktop, or click on mobile */}
                     <div className={`max-h-0 overflow-hidden transition-all duration-500 ${expandedIdx === idx ? 'max-h-[200px]' : 'group-hover:max-h-[200px]'}`}>
                       <ul className="space-y-2">
@@ -340,8 +344,8 @@ export function Home() {
                         ))}
                       </ul>
                       <div className="mt-6">
-                        <Link 
-                          to="/services" 
+                        <Link
+                          to="/services"
                           onClick={(e) => e.stopPropagation()}
                           className="inline-flex items-center gap-2 text-sm font-semibold text-[#4e8377] hover:text-white transition-colors"
                         >
@@ -367,10 +371,10 @@ export function Home() {
           >
             Why Us
           </span>
-          
+
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
             <div className="text-center mb-16">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -379,7 +383,7 @@ export function Home() {
               >
                 Expertise & Reliability
               </motion.h2>
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -392,24 +396,24 @@ export function Home() {
 
 
             <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-              
+
               {/* Left Column Features */}
               <div className="space-y-12 order-2 lg:order-1">
                 {[
-                  { 
-                    title: "Safety & Compliance", 
-                    icon: ShieldCheck, 
-                    desc: "Uncompromising commitment to safety and standards." 
+                  {
+                    title: "Safety & Compliance",
+                    icon: ShieldCheck,
+                    desc: "Uncompromising commitment to safety and standards."
                   },
-                  { 
-                    title: "Expert Engineering", 
-                    icon: Settings, 
-                    desc: "Cross-disciplinary expertise across energy and marine." 
+                  {
+                    title: "Expert Engineering",
+                    icon: Settings,
+                    desc: "Cross-disciplinary expertise across energy and marine."
                   },
-                  { 
-                    title: "Proven Track Record", 
-                    icon: CheckCircle2, 
-                    desc: "Success in the most demanding industrial environments." 
+                  {
+                    title: "Proven Track Record",
+                    icon: CheckCircle2,
+                    desc: "Success in the most demanding industrial environments."
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="relative group text-left lg:text-right flex flex-row lg:flex-row-reverse items-center justify-start lg:justify-end gap-6">
@@ -444,20 +448,20 @@ export function Home() {
               {/* Right Column Features */}
               <div className="space-y-12 order-3">
                 {[
-                  { 
-                    title: "Turnkey Management", 
-                    icon: Factory, 
-                    desc: "Full lifecycle management from design to execution." 
+                  {
+                    title: "Turnkey Management",
+                    icon: Factory,
+                    desc: "Full lifecycle management from design to execution."
                   },
-                  { 
-                    title: "Rapid Mobilization", 
-                    icon: Zap, 
-                    desc: "Agile response and quick deployment for support." 
+                  {
+                    title: "Rapid Mobilization",
+                    icon: Zap,
+                    desc: "Agile response and quick deployment for support."
                   },
-                  { 
-                    title: "Lifecycle Support", 
-                    icon: Wrench, 
-                    desc: "Dedicated maintenance, repair and retrofit services." 
+                  {
+                    title: "Lifecycle Support",
+                    icon: Wrench,
+                    desc: "Dedicated maintenance, repair and retrofit services."
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="relative group text-left flex items-center justify-start gap-6">
@@ -475,7 +479,7 @@ export function Home() {
               </div>
 
             </div>
-            
+
             <div className="mt-20 text-center">
               <Link to="/about" className="rounded-md bg-[#264740] px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-[#1a2e2a] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                 Learn More About Our Values

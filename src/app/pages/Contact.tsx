@@ -34,7 +34,7 @@ export function Contact() {
     try {
       const response = await fetch("https://formsubmit.co/ajax/sales@altimarenergy.com", {
         method: "POST",
-        headers: { 
+        headers: {
           'Accept': 'application/json'
         },
         body: formData,
@@ -57,7 +57,7 @@ export function Contact() {
   return (
     <div>
       {/* Page Header */}
-      <div 
+      <div
         className="relative h-[500px] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
         style={{ backgroundImage: `url(${contactImg})` }}
       >
@@ -73,7 +73,7 @@ export function Contact() {
       <section className="relative py-24 sm:py-32 overflow-hidden">
         {/* Decorative background text */}
         <span
-          className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-center w-full"
+          className="absolute top-0 left-0 lg:left-1/2 translate-x-0 lg:-translate-x-1/2 text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-left lg:text-center w-full px-6 lg:px-0"
           style={{ fontSize: "clamp(80px, 20vw, 250px)" }}
           aria-hidden="true"
         >
@@ -82,7 +82,7 @@ export function Contact() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-left lg:text-center mb-20">
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -90,7 +90,7 @@ export function Contact() {
             >
               Get In Touch
             </motion.h3>
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -108,158 +108,158 @@ export function Contact() {
                 Whether you need rapid support for an ongoing issue, or want to discuss a large-scale engineering project, our team is ready to assist.
               </p>
 
-            <div className="space-y-8">
-              <div className="flex gap-x-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#264740]/10">
-                  <Phone className="h-6 w-6 text-[#264740]" aria-hidden="true" />
+              <div className="space-y-8">
+                <div className="flex gap-x-6">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#264740]/10">
+                    <Phone className="h-6 w-6 text-[#264740]" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold leading-7 text-gray-900">Phone</h4>
+                    <p className="mt-2 text-gray-600">(+91) 9995575730</p>
+                    <p className="text-sm text-gray-500 mt-1">Mon-Fri from 8am to 5pm</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-base font-semibold leading-7 text-gray-900">Phone</h4>
-                  <p className="mt-2 text-gray-600">(+91) 9995575730</p>
-                  <p className="text-sm text-gray-500 mt-1">Mon-Fri from 8am to 5pm</p>
+                <div className="flex gap-x-6">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#264740]/10">
+                    <Mail className="h-6 w-6 text-[#264740]" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold leading-7 text-gray-900">Email</h4>
+                    <p className="mt-2 text-gray-600">service@altimarenergy.com <br />
+                      sales@altimarenergy.com </p>
+                  </div>
+                </div>
+                <div className="flex gap-x-6">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#264740]/10">
+                    <MapPin className="h-6 w-6 text-[#264740]" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold leading-7 text-gray-900">Office</h4>
+                    <p className="mt-2 text-gray-600">Door No. 4/P, Koyakkattu Arcade<br />Enanalloor, Ernakulam<br />Kerala, India - 686673</p>
+                  </div>
                 </div>
               </div>
-              <div className="flex gap-x-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#264740]/10">
-                  <Mail className="h-6 w-6 text-[#264740]" aria-hidden="true" />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold leading-7 text-gray-900">Email</h4>
-                  <p className="mt-2 text-gray-600">service@altimarenergy.com <br/>
-                  sales@altimarenergy.com </p>
-                </div>
-              </div>
-              <div className="flex gap-x-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#264740]/10">
-                  <MapPin className="h-6 w-6 text-[#264740]" aria-hidden="true" />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold leading-7 text-gray-900">Office</h4>
-                  <p className="mt-2 text-gray-600">Door No. 4/P, Koyakkattu Arcade<br />Enanalloor, Ernakulam<br />Kerala, India - 686673</p>
-                </div>
-              </div>
+
             </div>
 
-          </div>
 
+            {/* Contact Form */}
+            <div id="enquiry-form" className="bg-white p-10 rounded-3xl shadow-lg border border-gray-100 scroll-mt-24">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">Send an Enquiry</h3>
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                {status === 'error' && (
+                  <div className="p-4 bg-red-50 text-red-700 rounded-md text-sm mb-4">
+                    There was an error sending your message. Please try again or contact us via email.
+                  </div>
+                )}
 
-          {/* Contact Form */}
-          <div id="enquiry-form" className="bg-white p-10 rounded-3xl shadow-lg border border-gray-100 scroll-mt-24">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Send an Enquiry</h3>
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              {status === 'error' && (
-                <div className="p-4 bg-red-50 text-red-700 rounded-md text-sm mb-4">
-                  There was an error sending your message. Please try again or contact us via email.
-                </div>
-              )}
-              
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
-                  Full Name
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    ref={nameInputRef}
-                    required
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
-                    placeholder="Your Name"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-                    Email
+                  <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
+                    Full Name
                   </label>
                   <div className="mt-2.5">
                     <input
-                      type="email"
-                      name="email"
-                      id="email"
+                      type="text"
+                      name="name"
+                      id="name"
+                      ref={nameInputRef}
                       required
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
-                      placeholder="Your email id"
+                      placeholder="Your Name"
                     />
                   </div>
                 </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+                      Email
+                    </label>
+                    <div className="mt-2.5">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
+                        placeholder="Your email id"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-semibold leading-6 text-gray-900">
+                      Phone
+                    </label>
+                    <div className="mt-2.5">
+                      <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
+                        placeholder="Your Phone Number"
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold leading-6 text-gray-900">
-                    Phone
+                  <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+                    Message
                   </label>
                   <div className="mt-2.5">
-                    <input
-                      type="tel"
-                      name="phone"
-                      id="phone"
+                    <textarea
+                      name="message"
+                      id="message"
+                      rows={4}
+                      required
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
-                      placeholder="Your Phone Number"
+                      placeholder="Briefly describe your project or enquiry..."
+                      defaultValue={""}
                     />
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-                  Message
-                </label>
-                <div className="mt-2.5">
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows={4}
-                    required
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#4e8377] sm:text-sm sm:leading-6"
-                    placeholder="Briefly describe your project or enquiry..."
-                    defaultValue={""}
-                  />
-                </div>
-              </div>
+                <button
+                  type="submit"
+                  className="block w-full rounded-md bg-[#264740] px-3.5 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#1f3a34] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#264740] transition-colors mt-8"
+                >
+                  {status === 'submitting' ? "Sending..." : "Submit Enquiry"}
+                </button>
+              </form>
 
-              <button
-                type="submit"
-                className="block w-full rounded-md bg-[#264740] px-3.5 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#1f3a34] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#264740] transition-colors mt-8"
-              >
-                {status === 'submitting' ? "Sending..." : "Submit Enquiry"}
-              </button>
-            </form>
-
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogContent className="sm:max-w-md">
-                <DialogHeader className="flex flex-col items-center justify-center text-center">
-                  <div className="h-12 w-12 bg-green-50 rounded-full flex items-center justify-center mb-4">
-                    <CheckCircle2 className="h-6 w-6 text-green-600" />
+              <Dialog open={open} onOpenChange={setOpen}>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader className="flex flex-col items-center justify-center text-center">
+                    <div className="h-12 w-12 bg-green-50 rounded-full flex items-center justify-center mb-4">
+                      <CheckCircle2 className="h-6 w-6 text-green-600" />
+                    </div>
+                    <DialogTitle className="text-xl font-bold text-gray-900">Message Sent Successfully</DialogTitle>
+                    <DialogDescription className="mt-2 text-gray-500">
+                      Thank you for contacting Altimar Energy. We have received your message and will get back to you shortly.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="mt-6">
+                    <Button
+                      onClick={() => setOpen(false)}
+                      className="w-full bg-[#264740] hover:bg-[#1f3a34] text-white py-6"
+                    >
+                      Close
+                    </Button>
                   </div>
-                  <DialogTitle className="text-xl font-bold text-gray-900">Message Sent Successfully</DialogTitle>
-                  <DialogDescription className="mt-2 text-gray-500">
-                    Thank you for contacting Altimar Energy. We have received your message and will get back to you shortly.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="mt-6">
-                  <Button 
-                    onClick={() => setOpen(false)} 
-                    className="w-full bg-[#264740] hover:bg-[#1f3a34] text-white py-6"
-                  >
-                    Close
-                  </Button>
-                </div>
-              </DialogContent>
-            </Dialog>
-          </div>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
 
           {/* Map Layer */}
           <div className="mt-16 w-full h-[450px] bg-gray-200 rounded-3xl overflow-hidden border border-gray-300 shadow-lg relative">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7858.903245287337!2d76.64466216298216!3d9.979502345787429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07c35d189fe367%3A0x2535d3ab55c5a499!2sALTIMAR%20ENERGY%20SOLUTIONS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1775072383292!5m2!1sen!2sin" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7858.903245287337!2d76.64466216298216!3d9.979502345787429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07c35d189fe367%3A0x2535d3ab55c5a499!2sALTIMAR%20ENERGY%20SOLUTIONS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1775072383292!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
               allowFullScreen={true}
-              loading="lazy" 
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Altimar Energy Solutions Location"
             ></iframe>

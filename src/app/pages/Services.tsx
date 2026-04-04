@@ -120,7 +120,7 @@ export function Services() {
       <section className="relative py-24 sm:py-32 overflow-hidden">
         {/* Decorative background text */}
         <span
-          className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-center w-full"
+          className="absolute top-0 left-0 lg:left-1/2 translate-x-0 lg:-translate-x-1/2 text-gray-100 font-bold leading-none select-none pointer-events-none z-0 text-left lg:text-center w-full px-6 lg:px-0"
           style={{ fontSize: "clamp(80px, 20vw, 250px)" }}
           aria-hidden="true"
         >
